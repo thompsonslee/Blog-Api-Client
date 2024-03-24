@@ -10,6 +10,11 @@ import { useEffect } from 'react'
 function App() {
   const [user,setUser] = useState()
 
+  function logout(){
+    localStorage.removeItem("user")
+    setUser(null)
+  }
+
   useEffect(() =>{
       const user = JSON.parse(localStorage.getItem("user"))
       if(!user){return}
@@ -17,7 +22,7 @@ function App() {
   },[])
   return (
     <Routes>
-      <Route path='/' element={<MainPage user={user} /> } />
+      <Route path='/' element={<MainPage user={user} logout={logout} /> } />
       <Route path='/register' element={<RegisterPage setUser={setUser}/>} />
       <Route path='/login' element={<LoginPage setUser={setUser}/>} />
       <Route path='/post/:id' element={<PostPage /> } />
