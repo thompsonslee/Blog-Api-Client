@@ -47,10 +47,10 @@ export default function RegisterPage({setUser}){
             }
             const user = await loginReq.json()
 
-            localStorage.setItem("user", {
+            localStorage.setItem("user", json.stringify({
                 username: userName,
                 token: `Bearer ${user.token}`
-            })
+            }))
             setUser(userName)
             navigate("/")
 
@@ -71,7 +71,7 @@ export default function RegisterPage({setUser}){
                 label="Username"
                 value={userName}
                 setValue={setUserName}
-               />
+            />
             <InputGroup 
                 type="password"
                 name="Password"

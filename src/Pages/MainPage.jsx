@@ -1,7 +1,7 @@
-export default function MainPage(){
+export default function MainPage({user}){
     return(
         <>
-        MainPage
+        {user ? <div>welcome ${user}</div> : <div>Not logged in</div>}
         </>
     )
 }
