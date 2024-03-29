@@ -9,20 +9,29 @@ import { useEffect } from 'react'
 
 function App() {
   const [user,setUser] = useState()
+  const [posts,setPosts] = useState()
 
   function logout(){
     localStorage.removeItem("user")
     setUser(null)
   }
+  async function getPosts(){
+    const res = await fetch("http://localhost:3000/posts")
+    const resjson = await res.json()
+    setPosts(await resjson.posts)
+  }
 
   useEffect(() =>{
-      const user = JSON.parse(localStorage.getItem("user"))
-      if(!user){return}
-      setUser(user.username)
+    getPosts()
+    const user = JSON.parse(localStorage.getItem("user"))
+    if(!user){return}
+    setUser(user.username)
   },[])
+
+
   return (
     <Routes>
-      <Route path='/' element={<MainPage user={user} logout={logout} /> } />
+      <Route path='/' element={<MainPage user={user} logout={logout} posts={posts}/> } />
       <Route path='/register' element={<RegisterPage setUser={setUser}/>} />
       <Route path='/login' element={<LoginPage setUser={setUser}/>} />
       <Route path='/post/:id' element={<PostPage /> } />
