@@ -5,6 +5,7 @@ import MainPage from './Pages/MainPage'
 import RegisterPage from './Pages/RegisterPage'
 import LoginPage from './Pages/LoginPage'
 import PostPage from './Pages/PostPage'
+import Header from './Components/Header/Header'
 import { useEffect } from 'react'
 
 function App() {
@@ -31,10 +32,15 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<MainPage user={user} logout={logout} posts={posts}/> } />
+      <Route path='/' element={
+        <>
+          <Header user={user} logout={logout}/>
+          <MainPage user={user} logout={logout} posts={posts}/>
+        </>} 
+      />
       <Route path='/register' element={<RegisterPage setUser={setUser}/>} />
       <Route path='/login' element={<LoginPage setUser={setUser}/>} />
-      <Route path='/post/:id' element={<PostPage /> } />
+      <Route path='/post/:postID' element={<PostPage user={user} logout={logout} /> } />
     </Routes>
   )
 }

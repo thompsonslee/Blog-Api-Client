@@ -61,37 +61,35 @@ export default function RegisterPage({setUser}){
     }
 
     return(
-        <>
-
-        {error && <Error error={error} />}
-
-        <form onSubmit={handleSubmit}>
-            <InputGroup 
-                type= "text"
-                name="username"
-                label="Username"
-                value={userName}
-                setValue={setUserName}
-            />
-            <InputGroup 
-                type="password"
-                name="Password"
-                label="Password"
-                value={password}
-                setValue={setPassword}
-            />
-            <InputGroup
-                type="password"
-                name="pwConfirm"
-                label="Confirm Password"
-                value={pwConfirm}
-                setValue={setPwConfirm}
-             />
-            <button 
-                className="submitButton"
-                disabled={(userName && password && pwConfirm) ? false : true}
-                >Register</button>
-        </form>
-        </>
+        <div className="formContainer">
+            {error && <Error error={error} />}
+            <form onSubmit={handleSubmit}>
+                <InputGroup
+                    type= "text"
+                    name="username"
+                    label="Username"
+                    value={userName}
+                    setValue={setUserName}
+                />
+                <InputGroup 
+                    type="password"
+                    name="Password"
+                    label="Password"
+                    value={password}
+                    setValue={setPassword}
+                />
+                <InputGroup
+                    type="password"
+                    name="pwConfirm"
+                    label="Confirm Password"
+                    value={pwConfirm}
+                    setValue={setPwConfirm}
+                />
+                <button 
+                    className="submitButton"
+                    disabled={(userName && password && pwConfirm) ? false : true}
+                    >Register</button>
+            </form>
+        </div>
     )
 }

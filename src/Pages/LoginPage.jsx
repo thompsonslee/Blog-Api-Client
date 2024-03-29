@@ -40,28 +40,28 @@ export default function LoginPage({setUser}){
         }
     }
     return(
-        <>
-        {error && <ErrorBox error={error} />}
+        <div className="formContainer">
+            {error && <ErrorBox error={error} />}
 
-        <form onSubmit={handleSubmit}>
-            <InputGroup 
-                type= "text"
-                name="username"
-                label="Username"
-                value={userName}
-                setValue={setUserName}
-            />
-            <InputGroup 
-                type="password"
-                name="Password"
-                label="Password"
-                value={password}
-                setValue={setPassword}
-            />
-            <button className="submitButton"
-                disabled={(userName && password) ? false : true}
-            >Login</button>
-        </form>
-        </>
+            <form onSubmit={handleSubmit}>
+                <InputGroup 
+                    type= "text"
+                    name="username"
+                    label="Username"
+                    value={userName}
+                    setValue={setUserName}
+                />
+                <InputGroup 
+                    type="password"
+                    name="Password"
+                    label="Password"
+                    value={password}
+                    setValue={setPassword}
+                />
+                <button className="submitButton"
+                    disabled={(userName && password) ? false : true}
+                >Login</button>
+            </form>
+        </div>
     )
 }

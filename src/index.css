@@ -17,6 +17,7 @@
   --brightRed: rgb(219 48 48);
   --veryLightRed: rgb(255 205 199);
   --offWhiteRed: rgb(255 234 229);
+  --offBlack: rgb(0 30 43)
 }
 
 input{
@@ -33,16 +34,10 @@ a:hover {
 }
 
 body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 form{
   display: flex;
@@ -78,4 +73,10 @@ label{
 }
 .submitButton:enabled:hover {
   background-color: var(--greenDark);
+}
+.formContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

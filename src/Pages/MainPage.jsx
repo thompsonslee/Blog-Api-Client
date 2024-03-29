@@ -1,11 +1,9 @@
-import Header from "../Components/Header/Header"
 import Post from "../Components/Post/Post"
 
-export default function MainPage({user,logout,posts}){
+export default function MainPage({posts}){
     console.log(posts)
     return(
         <>
-            <Header user={user} logout={logout} />
             <div className="mainPage-main">
                 {(posts != null) ? (
                     posts.map((post) => {
