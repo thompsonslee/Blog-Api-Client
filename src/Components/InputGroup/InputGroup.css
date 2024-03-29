@@ -1,0 +1,16 @@
+.InputGroup{
+    display: flex;
+    flex-direction: column;
+}
+.InputGroup input{
+    border: 1px solid var(--darkGray);
+    border-radius: 6px;
+    padding: 8px 6px 8px 6px;
+    transition: 
+        box-shadow 0.25s,
+        border-color 0.25s
+}
+.InputGroup input:focus{
+    border-color: white;
+    box-shadow: var(--blue) 0 0 0 3px
+}

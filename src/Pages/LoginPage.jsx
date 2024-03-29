@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import InputGroup from "../Components/InputGroup"
+import InputGroup from "../Components/InputGroup/InputGroup"
+import ErrorBox from "../Components/ErrorBox/ErrorBox"
 
 export default function LoginPage({setUser}){
     const navigate = useNavigate()
-    const [userName,setUserName] = useState("")
-    const [password,setPassword] = useState("")
+    const [userName,setUserName] = useState(null)
+    const [password,setPassword] = useState(null)
     const [error, setError] = useState("")
 
     async function handleSubmit(e){
@@ -40,7 +41,7 @@ export default function LoginPage({setUser}){
     }
     return(
         <>
-        {error && <strong className="error-msg">{error}</strong>}
+        {error && <ErrorBox error={error} />}
 
         <form onSubmit={handleSubmit}>
             <InputGroup 
@@ -57,7 +58,9 @@ export default function LoginPage({setUser}){
                 value={password}
                 setValue={setPassword}
             />
-            <button>Login</button>
+            <button className="submitButton"
+                disabled={(userName && password) ? false : true}
+            >Login</button>
         </form>
         </>
     )

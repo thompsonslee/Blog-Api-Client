@@ -1,3 +1,4 @@
+import "./InputGroup.css"
 export default function InputGroup({type,name,label,value,setValue}){
 
     return(

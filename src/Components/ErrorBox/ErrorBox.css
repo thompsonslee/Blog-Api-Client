@@ -1,0 +1,16 @@
+.ErrorBox{
+    display: flex;
+    border-radius: 6px;
+    border: solid 1px var(--veryLightRed);
+    background-color: var(--offWhiteRed);
+    padding: 4px 12px 4px 12px;
+    border-left: 6px solid var(--brightRed);
+    margin-bottom: 10px;
+    }
+.ErrorBox p{
+    color: var(--strongRed);
+}
+.alert-svg{
+    width: 20px;
+    margin-right: 6px;
+}

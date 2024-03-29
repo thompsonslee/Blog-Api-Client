@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import InputGroup from "../Components/InputGroup"
+import ErrorBox from "../Components/ErrorBox/ErrorBox"
+import InputGroup from "../Components/InputGroup/InputGroup"
 
 export default function RegisterPage({setUser}){
     const navigate = useNavigate()
@@ -62,7 +63,7 @@ export default function RegisterPage({setUser}){
     return(
         <>
 
-        {error && <strong className="error-msg">{error}</strong>}
+        {error && <Error error={error} />}
 
         <form onSubmit={handleSubmit}>
             <InputGroup 
@@ -86,7 +87,10 @@ export default function RegisterPage({setUser}){
                 value={pwConfirm}
                 setValue={setPwConfirm}
              />
-            <button>Register</button>
+            <button 
+                className="submitButton"
+                disabled={(userName && password && pwConfirm) ? false : true}
+                >Register</button>
         </form>
         </>
     )
