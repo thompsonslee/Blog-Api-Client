@@ -5,6 +5,9 @@
   flex-direction: column;
   align-items: stretch;
 }
+a:hover{
+  color: inherit;
+}
 
 form{
   align-items: flex-start

@@ -1,3 +1,27 @@
 .Post{
-    
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--offBlacks);
+    box-shadow: 4px 5px 8px -1px #00000075;
+    transition: scale 0.2s;
+    border-radius: 6px;
+}
+.Post:hover{
+    color: inherit;
+    scale: 1.02;
+}
+.Post h2{
+    font-weight: bold;
+}
+.PostDescription{
+    font-size: 14px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.PostDate{
 }

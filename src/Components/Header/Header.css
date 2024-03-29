@@ -1,18 +1,19 @@
 .Header{
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 5vw;
     padding-right: 5vw;
-    margin-bottom: 20px;
     box-shadow: lightgrey 0px 2px 15px;
     z-index: 9;
+    background-color: var(--green);
 }
 .header h1{
     padding: 5px;
 }
 .Header a{
-    color: var(--offBlack)
+    color: white
 }
 .Header-nav{
     display: flex;
