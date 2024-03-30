@@ -4,7 +4,7 @@ import './App.css'
 import MainPage from './Pages/MainPage/MainPage'
 import RegisterPage from './Pages/RegisterPage'
 import LoginPage from './Pages/LoginPage'
-import PostPage from './Pages/PostPage'
+import PostPage from './Pages/PostPage/PostPage'
 import Header from './Components/Header/Header'
 import { useEffect } from 'react'
 
@@ -40,7 +40,12 @@ function App() {
       />
       <Route path='/register' element={<RegisterPage setUser={setUser}/>} />
       <Route path='/login' element={<LoginPage setUser={setUser}/>} />
-      <Route path='/post/:postID' element={<PostPage user={user} logout={logout} /> } />
+      <Route path='/post/:postID' element={
+        <>
+          <Header user={user} logout={logout}/>
+          <PostPage user={user} />
+        </>} 
+      />
     </Routes>
   )
 }

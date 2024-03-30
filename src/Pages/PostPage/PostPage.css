@@ -1,0 +1,10 @@
+.PostPage{
+    align-self: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+    width: 60%;
+    min-width: 350px;
+    
+}
