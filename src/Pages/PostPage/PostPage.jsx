@@ -12,19 +12,16 @@ export default function PostPage({user}){
     const postID = useParams().postID
 
 
-    async function getPost(){
+    async function refreshPost(){
     const res = await fetch(`http://localhost:3000/posts/${postID}`)
     const data = await res.json()
     setPost(data.posts)
     setComments(data.comments)
     console.log(data)
     }
-    function addComment(comment){
-        setComments([comment, ...comments,])
-    }
 
     useEffect(() => {
-        getPost()
+        refreshPost()
     },[])
 
     return(
@@ -38,7 +35,7 @@ export default function PostPage({user}){
                 <div className="comment-section">
                     {(user) &&
                     <CommentBox 
-                        addComment={addComment}
+                        refreshPost={refreshPost}
                         user={user}
                     />}
                     {(comments.length) ? (

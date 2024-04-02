@@ -1,0 +1,9 @@
+.CommentBox{
+    display: flex;
+    align-items: stretch;
+}
+.CommentBox textarea{
+    border: 0;
+    border-bottom: 1px solid var(--lightgray);
+    resize: none;
+}

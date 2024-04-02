@@ -5,8 +5,8 @@ import ErrorBox from "../Components/ErrorBox/ErrorBox"
 
 export default function LoginPage({setUser}){
     const navigate = useNavigate()
-    const [userName,setUserName] = useState(null)
-    const [password,setPassword] = useState(null)
+    const [userName,setUserName] = useState("")
+    const [password,setPassword] = useState("")
     const [error, setError] = useState("")
 
     async function handleSubmit(e){

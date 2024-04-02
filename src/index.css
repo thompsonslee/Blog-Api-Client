@@ -23,6 +23,9 @@
 input{
   outline: 0;
 }
+textarea{
+  outline: 0;
+}
 
 a {
   font-weight: 500;

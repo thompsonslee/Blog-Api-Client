@@ -5,7 +5,9 @@ export default function Header({user,logout}){
 
     return(
         <div className="Header">
-            <h1>My Blog</h1>
+            <Link to="/">
+                <h1>My Blog</h1>
+            </Link>
             {(user) ? (
                 <div className="Header-nav">
                     <div>Currently logged in as {user}</div>

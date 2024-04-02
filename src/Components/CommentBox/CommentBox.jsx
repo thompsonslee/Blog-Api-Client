@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import "./CommentBox.css"
 import { useState } from "react"
 
-export default function CommentBox({addComment,user}){
+export default function CommentBox({refreshPost,user}){
     const [content,setContent] = useState("")
     const postID = useParams().postID
     const token = localStorage.getItem("token")
@@ -23,22 +23,21 @@ export default function CommentBox({addComment,user}){
         })
         console.log(res)
         if(res.status === 200){
-            console.log("success")
+            refreshPost()
         }
         else(console.log("error"))
     }
 
 
     return(
-        <div className="CommentBox">
-            <form onSubmit={handleSubmit}>
-                <textarea 
-                    name="content"
-                    value={content}
-                    onChange={(e) =>setContent(e.target.value)}
-                ></textarea>
-                <button>Send</button>
-            </form>
-        </div>
+        <form className="CommentBox" onSubmit={handleSubmit}>
+            <textarea 
+                name="content"
+                value={content}
+                placeholder="Add a comment..."
+                onChange={(e) =>setContent(e.target.value)}
+            ></textarea>
+            <button className="submitButton">Send</button>
+        </form>
     )
 }
