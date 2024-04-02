@@ -7,3 +7,6 @@
     border-bottom: 1px solid var(--lightgray);
     resize: none;
 }
+.CommentBox textarea:focus{
+    border-bottom: 2px solid black;
+}
