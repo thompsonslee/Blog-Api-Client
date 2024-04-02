@@ -13,7 +13,7 @@ export default function PostPage({user}){
 
 
     async function refreshPost(){
-    const res = await fetch(`http://localhost:3000/posts/${postID}`)
+    const res = await fetch(`https://tundra-loving-promotion.glitch.me/posts/${postID}`)
     const data = await res.json()
     setPost(data.posts)
     setComments(data.comments)

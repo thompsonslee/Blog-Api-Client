@@ -18,7 +18,7 @@ export default function RegisterPage({setUser}){
             return
         }
         try{
-            const registerReq = await fetch("http://localhost:3000/register",{
+            const registerReq = await fetch("https://tundra-loving-promotion.glitch.me/register",{
                 method: "POST",
                 headers: {
                     'content-type': 'application/json;charset=utf-8'
@@ -32,7 +32,7 @@ export default function RegisterPage({setUser}){
                 setError("Error Signing Up")
                 return
             }
-            const loginReq = await fetch("http://localhost:3000/login",{
+            const loginReq = await fetch("https://tundra-loving-promotion.glitch.me/login",{
                 method:"POST",
                 headers: {
                     'content-type': 'application/json;charset=utf-8'
@@ -42,19 +42,19 @@ export default function RegisterPage({setUser}){
                     password: password
                 })
             })
+            console.log(loginReq)
             if(!loginReq.ok){
                 setError("failed to login")
-                return
             }
-            const user = await loginReq.json()
-
-            localStorage.setItem("user", json.stringify({
-                username: userName,
-                token: `Bearer ${user.token}`
-            }))
-            setUser(userName)
-            navigate("/")
-
+            else{
+                const user = await loginReq.json()
+                localStorage.setItem("user", JSON.stringify({
+                    username: userName,
+                    token: `Bearer ${user.token}`
+                }))
+                setUser(userName)
+                navigate("/")
+            }
         }catch(e){
             return e
         }
@@ -62,7 +62,7 @@ export default function RegisterPage({setUser}){
 
     return(
         <div className="formContainer">
-            {error && <Error error={error} />}
+            {error && <ErrorBox error={error} />}
             <form onSubmit={handleSubmit}>
                 <InputGroup
                     type= "text"

@@ -5,11 +5,11 @@ import { useState } from "react"
 export default function CommentBox({refreshPost,user}){
     const [content,setContent] = useState("")
     const postID = useParams().postID
-    const token = localStorage.getItem("token")
+    const token = JSON.parse(localStorage.getItem("user")).token
 
     const handleSubmit = async(e) =>{
         e.preventDefault()
-        const res = await fetch(`http://localhost:3000/posts/${postID}/comments`,{
+        const res = await fetch(`https://tundra-loving-promotion.glitch.me/posts/${postID}/comments`,{
             method:"POST",
             headers: {
                 'content-type': 'application/json;charset=utf-8',

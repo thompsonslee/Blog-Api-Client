@@ -17,7 +17,7 @@ function App() {
     setUser(null)
   }
   async function getPosts(){
-    const res = await fetch("http://localhost:3000/posts")
+    const res = await fetch("https://tundra-loving-promotion.glitch.me/posts")
     const resjson = await res.json()
     setPosts(await resjson.posts)
   }

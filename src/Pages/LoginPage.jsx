@@ -13,7 +13,7 @@ export default function LoginPage({setUser}){
         e.preventDefault()
 
         try{
-            const loginReq = await fetch("http://localhost:3000/login",{
+            const loginReq = await fetch("https://tundra-loving-promotion.glitch.me//login",{
                 method:"POST",
                 headers: {
                     'content-type': 'application/json;charset=utf-8'
